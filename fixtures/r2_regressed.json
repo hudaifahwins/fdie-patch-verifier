@@ -1,0 +1,30 @@
+{
+  "release_id": "r2_regressed",
+  "device": "acme smart-gateway",
+  "firmware_version": "2.0.1",
+  "packages": [
+    {
+      "name": "openssl",
+      "version": "1.0.2u",
+      "license": "OpenSSL"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2018-0739",
+      "package": "openssl",
+      "installed_version": "1.0.2u",
+      "fixed_version": "1.0.2q",
+      "backported": false,
+      "severity": "HIGH",
+      "evidence": "no backport patch marker present in release tree"
+    }
+  ],
+  "unchecked_regions": [
+    {
+      "kind": "encrypted",
+      "path": "syscfg.bin",
+      "reason": "AES-256-CBC encrypted configuration blob; no key available"
+    }
+  ]
+}

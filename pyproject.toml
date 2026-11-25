@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fdie-patch-verifier"
+version = "0.1.0"
+description = "Firmware security & release-diff verifier: safe archive scanning, secret detection, backport-aware vulnerability classification, SQLite history, and a FastAPI dashboard."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "fdie-patch-verifier team" }]
+keywords = ["firmware", "security", "verifier", "cve", "backport", "fastapi", "sqlite", "diff"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "pydantic>=2.6.0",
+    "uvicorn>=0.29.0",
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+fdie-verify = "fdie_verifier.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
